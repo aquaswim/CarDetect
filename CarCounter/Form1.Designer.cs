@@ -31,28 +31,28 @@
             this.components = new System.ComponentModel.Container();
             this.tblMainPanel = new System.Windows.Forms.TableLayoutPanel();
             this.scSideBar = new System.Windows.Forms.SplitContainer();
+            this.tblFilePanel = new System.Windows.Forms.TableLayoutPanel();
+            this.lblCascade = new System.Windows.Forms.Label();
+            this.btnOpenCascade = new System.Windows.Forms.Button();
+            this.btnOpenVideo = new System.Windows.Forms.Button();
+            this.lblVideo = new System.Windows.Forms.Label();
             this.ibMonitor = new Emgu.CV.UI.ImageBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ofdOpenFIle = new System.Windows.Forms.OpenFileDialog();
-            this.tblFilePanel = new System.Windows.Forms.TableLayoutPanel();
-            this.btnOpenVideo = new System.Windows.Forms.Button();
-            this.Status = new System.Windows.Forms.StatusStrip();
-            this.statLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnOpenCascade = new System.Windows.Forms.Button();
-            this.lblVideo = new System.Windows.Forms.Label();
-            this.lblCascade = new System.Windows.Forms.Label();
             this.tsOpenVideo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsOpenCascade = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ofdOpenFIle = new System.Windows.Forms.OpenFileDialog();
+            this.Status = new System.Windows.Forms.StatusStrip();
+            this.statLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tblMainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scSideBar)).BeginInit();
             this.scSideBar.Panel1.SuspendLayout();
             this.scSideBar.SuspendLayout();
+            this.tblFilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ibMonitor)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.tblFilePanel.SuspendLayout();
             this.Status.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,8 +83,70 @@
             // 
             this.scSideBar.Panel1.Controls.Add(this.tblFilePanel);
             this.scSideBar.Size = new System.Drawing.Size(204, 331);
-            this.scSideBar.SplitterDistance = 130;
+            this.scSideBar.SplitterDistance = 112;
             this.scSideBar.TabIndex = 0;
+            // 
+            // tblFilePanel
+            // 
+            this.tblFilePanel.ColumnCount = 2;
+            this.tblFilePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.tblFilePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblFilePanel.Controls.Add(this.lblCascade, 1, 1);
+            this.tblFilePanel.Controls.Add(this.btnOpenCascade, 0, 1);
+            this.tblFilePanel.Controls.Add(this.btnOpenVideo, 0, 0);
+            this.tblFilePanel.Controls.Add(this.lblVideo, 1, 0);
+            this.tblFilePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblFilePanel.Location = new System.Drawing.Point(0, 0);
+            this.tblFilePanel.Name = "tblFilePanel";
+            this.tblFilePanel.RowCount = 2;
+            this.tblFilePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblFilePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblFilePanel.Size = new System.Drawing.Size(202, 110);
+            this.tblFilePanel.TabIndex = 0;
+            // 
+            // lblCascade
+            // 
+            this.lblCascade.AutoSize = true;
+            this.lblCascade.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCascade.Location = new System.Drawing.Point(71, 55);
+            this.lblCascade.Name = "lblCascade";
+            this.lblCascade.Size = new System.Drawing.Size(128, 55);
+            this.lblCascade.TabIndex = 3;
+            this.lblCascade.Text = "label1";
+            this.lblCascade.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnOpenCascade
+            // 
+            this.btnOpenCascade.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOpenCascade.Location = new System.Drawing.Point(3, 65);
+            this.btnOpenCascade.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.btnOpenCascade.Name = "btnOpenCascade";
+            this.btnOpenCascade.Size = new System.Drawing.Size(62, 35);
+            this.btnOpenCascade.TabIndex = 1;
+            this.btnOpenCascade.Text = "Open Cascade";
+            this.btnOpenCascade.UseVisualStyleBackColor = true;
+            // 
+            // btnOpenVideo
+            // 
+            this.btnOpenVideo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOpenVideo.Location = new System.Drawing.Point(3, 10);
+            this.btnOpenVideo.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.btnOpenVideo.Name = "btnOpenVideo";
+            this.btnOpenVideo.Size = new System.Drawing.Size(62, 35);
+            this.btnOpenVideo.TabIndex = 0;
+            this.btnOpenVideo.Text = "Open Video";
+            this.btnOpenVideo.UseVisualStyleBackColor = true;
+            // 
+            // lblVideo
+            // 
+            this.lblVideo.AutoSize = true;
+            this.lblVideo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblVideo.Location = new System.Drawing.Point(71, 0);
+            this.lblVideo.Name = "lblVideo";
+            this.lblVideo.Size = new System.Drawing.Size(128, 55);
+            this.lblVideo.TabIndex = 2;
+            this.lblVideo.Text = "label1";
+            this.lblVideo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ibMonitor
             // 
@@ -92,6 +154,7 @@
             this.ibMonitor.Location = new System.Drawing.Point(3, 3);
             this.ibMonitor.Name = "ibMonitor";
             this.ibMonitor.Size = new System.Drawing.Size(368, 331);
+            this.ibMonitor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ibMonitor.TabIndex = 2;
             this.ibMonitor.TabStop = false;
             // 
@@ -120,8 +183,20 @@
             this.tsOpenVideo,
             this.tsOpenCascade});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "&Open";
+            // 
+            // tsOpenVideo
+            // 
+            this.tsOpenVideo.Name = "tsOpenVideo";
+            this.tsOpenVideo.Size = new System.Drawing.Size(140, 22);
+            this.tsOpenVideo.Text = "Video";
+            // 
+            // tsOpenCascade
+            // 
+            this.tsOpenCascade.Name = "tsOpenCascade";
+            this.tsOpenCascade.Size = new System.Drawing.Size(140, 22);
+            this.tsOpenCascade.Text = "Cascade xml";
             // 
             // exitToolStripMenuItem
             // 
@@ -133,35 +208,6 @@
             // ofdOpenFIle
             // 
             this.ofdOpenFIle.FileName = "Video File";
-            // 
-            // tblFilePanel
-            // 
-            this.tblFilePanel.ColumnCount = 2;
-            this.tblFilePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
-            this.tblFilePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblFilePanel.Controls.Add(this.lblCascade, 1, 1);
-            this.tblFilePanel.Controls.Add(this.btnOpenCascade, 0, 1);
-            this.tblFilePanel.Controls.Add(this.btnOpenVideo, 0, 0);
-            this.tblFilePanel.Controls.Add(this.lblVideo, 1, 0);
-            this.tblFilePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblFilePanel.Location = new System.Drawing.Point(0, 0);
-            this.tblFilePanel.Name = "tblFilePanel";
-            this.tblFilePanel.RowCount = 2;
-            this.tblFilePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblFilePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblFilePanel.Size = new System.Drawing.Size(202, 128);
-            this.tblFilePanel.TabIndex = 0;
-            // 
-            // btnOpenVideo
-            // 
-            this.btnOpenVideo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOpenVideo.Location = new System.Drawing.Point(3, 10);
-            this.btnOpenVideo.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
-            this.btnOpenVideo.Name = "btnOpenVideo";
-            this.btnOpenVideo.Size = new System.Drawing.Size(62, 44);
-            this.btnOpenVideo.TabIndex = 0;
-            this.btnOpenVideo.Text = "Open Video";
-            this.btnOpenVideo.UseVisualStyleBackColor = true;
             // 
             // Status
             // 
@@ -177,51 +223,6 @@
             // 
             this.statLabel.Name = "statLabel";
             this.statLabel.Size = new System.Drawing.Size(0, 17);
-            // 
-            // btnOpenCascade
-            // 
-            this.btnOpenCascade.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOpenCascade.Location = new System.Drawing.Point(3, 74);
-            this.btnOpenCascade.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
-            this.btnOpenCascade.Name = "btnOpenCascade";
-            this.btnOpenCascade.Size = new System.Drawing.Size(62, 44);
-            this.btnOpenCascade.TabIndex = 1;
-            this.btnOpenCascade.Text = "Open Cascade";
-            this.btnOpenCascade.UseVisualStyleBackColor = true;
-            // 
-            // lblVideo
-            // 
-            this.lblVideo.AutoSize = true;
-            this.lblVideo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblVideo.Location = new System.Drawing.Point(71, 0);
-            this.lblVideo.Name = "lblVideo";
-            this.lblVideo.Size = new System.Drawing.Size(128, 64);
-            this.lblVideo.TabIndex = 2;
-            this.lblVideo.Text = "label1";
-            this.lblVideo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblCascade
-            // 
-            this.lblCascade.AutoSize = true;
-            this.lblCascade.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCascade.Location = new System.Drawing.Point(71, 64);
-            this.lblCascade.Name = "lblCascade";
-            this.lblCascade.Size = new System.Drawing.Size(128, 64);
-            this.lblCascade.TabIndex = 3;
-            this.lblCascade.Text = "label1";
-            this.lblCascade.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tsOpenVideo
-            // 
-            this.tsOpenVideo.Name = "tsOpenVideo";
-            this.tsOpenVideo.Size = new System.Drawing.Size(152, 22);
-            this.tsOpenVideo.Text = "Video";
-            // 
-            // tsOpenCascade
-            // 
-            this.tsOpenCascade.Name = "tsOpenCascade";
-            this.tsOpenCascade.Size = new System.Drawing.Size(152, 22);
-            this.tsOpenCascade.Text = "Cascade xml";
             // 
             // frmMain
             // 
@@ -241,11 +242,11 @@
             this.scSideBar.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scSideBar)).EndInit();
             this.scSideBar.ResumeLayout(false);
+            this.tblFilePanel.ResumeLayout(false);
+            this.tblFilePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ibMonitor)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tblFilePanel.ResumeLayout(false);
-            this.tblFilePanel.PerformLayout();
             this.Status.ResumeLayout(false);
             this.Status.PerformLayout();
             this.ResumeLayout(false);
