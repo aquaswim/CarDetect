@@ -20,11 +20,15 @@ namespace CarCounter
         public frmMain()
         {
             InitializeComponent();
+            listItem = new List<DetectedItem>();
         }
 
         VideoCapture video;
         CascadeClassifier cascadeClassifier;
         Timer timer;
+        bool isPlaying;
+        bool isDetecting;
+        int carCount;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -36,9 +40,12 @@ namespace CarCounter
             btnOpenCascade.Click += openCascade;
             tsOpenCascade.Click += openCascade;
             timer = new Timer();
-            timer.Interval = 65;
+            timer.Interval = trackbarInterval.Value;
             timer.Tick += process;
             timer.Start();
+            isPlaying = false;
+            isDetecting = false;
+            carCount = 0;
         }
 
         private void openVideo(object sender, EventArgs e)
@@ -50,39 +57,12 @@ namespace CarCounter
                     throw new Exception("No Video File Opened.");
                 video = new VideoCapture(ofdOpenFIle.FileName);
                 lblVideo.Text = ofdOpenFIle.FileName;
+                trackBarLaneX.Maximum = trackbarLaneWidth.Maximum = video.Width;
+                trackBarLaneY.Maximum = trackbarLaneHeight.Maximum = video.Height;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void process(object sender, EventArgs e)
-        {
-            if (video == null || cascadeClassifier == null)
-            {
-                statLabel.Text = "No video and/or haar cascades file";
-                return;
-            }
-            using (Mat imgFrame = video.QueryFrame())
-            {
-                if (imgFrame == null)
-                {
-                    video.SetCaptureProperty(CapProp.PosAviRatio, 0);
-                    return;
-                }
-                Rectangle[] rects = cascadeClassifier.DetectMultiScale(imgFrame, 1.1, 1/*, default(Size), gray.Size*/);
-                using(Image<Bgr, byte> output = imgFrame.ToImage<Bgr, byte>())
-                {
-                    foreach (Rectangle rect in rects)
-                    {
-                        output.Draw(rect, new Bgr(Color.Red), 3);
-                    }
-                    ibMonitor.Image = output;
-                }
-                //status update
-                var max = video.GetCaptureProperty(CapProp.FrameCount);
-                var now = video.GetCaptureProperty(CapProp.PosFrames);
-                statLabel.Text = $"Position: {now}/{max}";
             }
         }
 
@@ -110,6 +90,21 @@ namespace CarCounter
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
 
+        }
+
+        private void btnPlayPause_Click(object sender, EventArgs e)
+        {
+            isPlaying = !isPlaying;
+        }
+
+        private void trackbarInterval_ValueChanged(object sender, EventArgs e)
+        {
+            timer.Interval = trackbarInterval.Value;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            isDetecting = !isDetecting;
         }
     }
 }
